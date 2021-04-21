@@ -1,7 +1,7 @@
 # Fdb version 3
-["pdflatex"] 1618881919 "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.tex" "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.pdf" "Paper" 1618881920
-  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.aux" 1618881920 477 3559173122df491d5bcb56c99f744dc0 ""
-  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.tex" 1618881918 954 0b746114f17273f7b8400cb4897f3528 ""
+["pdflatex"] 1618882625 "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.tex" "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.pdf" "Paper" 1618882625
+  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.aux" 1618882625 477 3559173122df491d5bcb56c99f744dc0 ""
+  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.tex" 1618882624 952 49733084fca08b3d527789b51913faef ""
   "/usr/share/texmf-dist/fonts/enc/dvips/base/8r.enc" 1616952564 4850 80dc9bab7f31fb78a000ccfed0e27cab ""
   "/usr/share/texmf-dist/fonts/map/fontname/texfonts.map" 1616952564 3524 cb3e574dea2d1052e39280babc910dc8 ""
   "/usr/share/texmf-dist/fonts/tfm/adobe/times/ptmb7t.tfm" 1616952564 2172 fd0c924230362ff848a33632ed45dc23 ""
@@ -142,11 +142,11 @@
   "/usr/share/texmf-dist/web2c/texmf.cnf" 1616952564 33301 a3134070eacafb10b1f371612ce2650d ""
   "/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map" 1618880041 4885835 225b430335ea75120e4d14f95280dfb9 ""
   "/var/lib/texmf/web2c/pdftex/pdflatex.fmt" 1618880027 2635857 addee4e8a35a540417959bef79b2a6d0 ""
-  "Paper.aux" 1618881920 477 3559173122df491d5bcb56c99f744dc0 "pdflatex"
-  "Paper.tex" 1618881918 954 0b746114f17273f7b8400cb4897f3528 ""
+  "Paper.aux" 1618882625 477 3559173122df491d5bcb56c99f744dc0 "pdflatex"
+  "Paper.tex" 1618882624 952 49733084fca08b3d527789b51913faef ""
   (generated)
   "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.pdf"
-  "Paper.aux"
-  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.log"
-  "Paper.pdf"
   "Paper.log"
+  "Paper.aux"
+  "Paper.pdf"
+  "/home/rafunchis/Escritorio/Universidad_1/Modelado y Simulación/ModeladoSimulacion/Proyecto/Paper.log"
