@@ -53,7 +53,7 @@ un grupo necesariamente deben entrar a otro de los grupos, y en todo momento se 
 $N = S + E + I + R$.
 \\\\
 El modelo propuesto por los autores es una versión ampliada de este modelo, en el cual 
-se incluyen dos categorías más: $H$ (hospitalizados) y $Q$ (en cuarentena). Además, se
+se incluyen dos variables más: $H$ (hospitalizados) y $Q$ (en cuarentena). Además, se
 divide la categoría de infectados en dos grupos: $I_1$ (infecados sin intervención)
 e $I_2$ (infectados con intervención).
 \\\\
@@ -64,9 +64,8 @@ caso ilustra el comportamiento natural de una pandemia y equivale al SEIR clási
 mientras que el segundo hace referencia a los mecanismos de control impuestos por los
 gobiernos tales como cuarentenas y hospitazaciones. Por último, otra diferencia 
 importante de este modelo con respecto al SEIR clásico es que en este los individuos
-pueden pasar de $R$ nuevamente a $S$, pues se ha demostrado que es posible volver a 
-contagiarse después de haber estado infectado y haberse recuperado. A continuación 
-se muestra el modelo propuesto:
+pueden pasar de $R$ nuevamente a $S$, pues se ha demostrado que es posible
+contagiarse más de una vez. A continuación se muestra el modelo propuesto:
 
 \begin{equation}   
     \begin{aligned}
@@ -89,6 +88,48 @@ se muestra el modelo propuesto:
     \right.
     \end{aligned}
 \end{equation}
+
+En los cuadros \ref{var_desc} y \ref{sys_pars} se pueden ver las descripciones de las
+variables y los parámetros del modelo respectivamente.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+    \hline
+    Variable & Descripción                 \\ \hline
+    $S$      & Susceptibles                \\ 
+    $E$      & Expuestos                   \\ 
+    $I_1$    & Infectados sin intervención \\ 
+    $I_2$    & Infectados con intervención \\ 
+    $R$      & Recuperados                 \\ 
+    $Q$      & En cuarentena               \\ 
+    $H$      & Hospitalizados              \\ \hline
+    \end{tabular}
+    \caption{Descripción de las variables del sistema}
+    \label{var_desc}
+\end{table}
+
+
+\begin{table}[h]
+    \begin{tabular}{ll}
+    \hline
+    Parámetros            & Descripción                                                        \\ \hline
+    $\alpha$              & Tasa de inmunidad temporal                                         \\ 
+    $\beta_1, \beta_2$    & Tasa de transmisión por contacto con la clase de infecados         \\ 
+    $\chi$                & Probabilidad de transmisión por contacto con individuos expuestos  \\ 
+    $\theta_1 , \theta_2$ & Tasa de transición de individuos a la clase de infectados          \\ 
+    $\gamma_1 , \gamma_2$ & Tasa de recuperación de infectados sintomáticos a recuperados      \\ 
+    $\varphi$                & Tasa de transición de infectados con síntomas a hospitalizados     \\ 
+    $\phi$                & Tasa de recuperación de individuos infectados en cuarentena        \\ 
+    $\lambda$             & Tasa de transición de individuos en cuarentena a infectados        \\ 
+    $\rho_1 , \rho_2$     & Tasa de transición entre susceptibles y en cuarentena y vice versa \\ 
+    $\Lambda$             & Entrada externa de otros países o regiones                         \\ \hline
+    \end{tabular}
+    \caption{Descripción de los parámetros del sistema}
+    \label{sys_pars}
+\end{table}
+
+
 
 La figura \ref{block_diagram} muestra un diagrama de flujo del modelo con los diferentes canales.
 
