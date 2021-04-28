@@ -22,24 +22,36 @@
 
 \DeclareMathOperator{\diag}{diag}
 
+\providecommand{\keywords}[1]
+{
+  \small	
+  \textbf{\textit{Palabras Clave---}} #1
+}
+
 
 \begin{document}
     
 
-\title{Modelado SEIR del COVID-19 y sus dinámicas}
+\title{Modelado SEIR del COVID-19 y sus dinámicas: simulaciones y análisis de 
+bifurcaciones}
 
 \author{Rafael Mejía Zuluaga - rmejiaz@unal.edu.co}
 
 \maketitle
 
 
+\begin{abstract}
+    El presente documento es un análisis del artículo \textit{SEIR modeling of the
+    COVID-19 and its dynamics} [1]. Primero, se hace una breve descripción del modelo SEIR 
+    clásico y del modelo presentado por los autores, el cual es una versión mejorada del mismo.
+    Luego, se presentan los resultados y el análisis de algunas simulaciones realizadas en 
+    \textit{Python} y por último se exponen algunas conclusiones.  
+    \newline
+\end{abstract}
+
+\keywords{Modelo SEIR, Modelado Epidemiológico, COVID-19, Bifurcaciones}
+
 \section{Introducción}
-
-El presente documento es una réplica del artículo \textit{SEIR modeling of the
-COVID-19 and its dynamics}. En este se simula el modelo propuesto por los autores 
-y se realiza un análisis de bifurcaciones.
-
-\section{Modelo SEIR}
 
 El modelo SEIR clásico parte de un principio fundamental el cual consiste en dividir a
 la población total en cuatro grupos diferentes: $S$ (susceptibles), $E$ (expuestos),
