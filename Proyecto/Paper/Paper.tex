@@ -15,6 +15,7 @@
 \pagenumbering{arabic}
 \usepackage{lastpage}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 \pagestyle{fancy}
 \fancyhf{}
 \rfoot{Página \thepage \hspace{1pt} de \pageref{LastPage}}
@@ -49,10 +50,15 @@ bifurcaciones}
     \newline
 \end{abstract}
 
-\keywords{Modelo SEIR, Modelado Epidemiológico, COVID-19, Bifurcaciones}
+\keywords{Modelo SEIR, Modelado Epidemiológico, COVID-19, Bifurcaciones, Predicciones}
 
 \section{Introducción}
-
+Los modelos SEIR son ampliamente utilizados en el campo de la epidemiología para 
+modelar el compartamiento de enfermedades infecciosas como lo es en la actualidad 
+el COVID-19. Utilizando estos modelos es posible hacer predicciones con respecto 
+a la evolución y propagación de enfermedades infecciosas dentro de una población, que 
+luego pueden ser utilizadas por los entres gubernamentales en la toma de desiciones.
+\\\\
 El modelo SEIR clásico parte de un principio fundamental el cual consiste en dividir a
 la población total en cuatro grupos diferentes: $S$ (susceptibles), $E$ (expuestos),
 $I$ (infectados) y $R$ (recuperados). La idea es que a media que pasa el tiempo, 
@@ -145,12 +151,34 @@ variables y los parámetros del modelo respectivamente.
 
 La figura \ref{block_diagram} muestra un diagrama de flujo del modelo con los diferentes canales.
 
-\begin{figure}[h]
+\begin{figure}[H]
     \centering
     \includegraphics[width=8.5cm]{../Figures/Model_flowchart.png}
     \caption{Diagrama de flujo del modelo}
     \label{block_diagram}
 \end{figure}
 
+
+Como puede verse, el modelo tiene una gran cantidad de parámetros, los cuales deben
+ser cuidadosamente seleccionados según las dinámicas de cada región. Por ejemplo, los 
+mecanismos de control impuestos por los gobiernos pueden variar en cada país.
+\\\\
+En el caso del artículo original, se utiliza el algoritmo PSO (\textit{particle swarm optimization})
+para estimar los parámetros del modelo de acuerdo a un conjunto de datos de la provincia
+de Hubei, en China, de donde también se toman las condiciones iniciales del sistema.
+\\\\
+La figura \ref{pvi_1} muestra una simulación del problema de valor inicial, utilizando
+los mismos parámetros y valores iniciales del artículo.
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=10cm]{../Figures/ivp_1.png}
+    \caption{Solución numérica del problema de valores iniciales realizada en Python}
+    \label{pvi_1}
+\end{figure}
+
+Esta y todas las simulaciones presentadas en este artículo pueden ser consultadas en 
+el siguiente enlace: \href{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto.ipynb}{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto
+.ipynb}
 
 \end{document}
