@@ -36,7 +36,7 @@
 \title{Modelado SEIR del COVID-19 y sus dinámicas: simulaciones y análisis de 
 bifurcaciones}
 
-\author{Rafael Mejía Zuluaga - rmejiaz@unal.edu.co}
+\author{Rafael Mejía Zuluaga \\\\ Universidad Nacional de Colombia sede Manizales \\ rmejiaz@unal.edu.co}
 
 \maketitle
 
@@ -50,7 +50,7 @@ bifurcaciones}
     \newline
 \end{abstract}
 
-\keywords{Modelo SEIR, Modelado Epidemiológico, COVID-19, Bifurcaciones, Predicciones}
+\keywords{Modelo SEIR, Modelado Epidemiológico, COVID-19, Bifurcaciones, Predicciones, Caos}
 
 \section{Introducción}
 Los modelos SEIR son ampliamente utilizados en el campo de la epidemiología para 
@@ -200,6 +200,50 @@ los mismos parámetros y valores iniciales del artículo.
     \label{pvi_1}
 \end{figure}
 
+\section{Infección estocástica y estacional}
+
+La estacionalidad es ampliamente utilizada en modelos epidemiológicos. A pesar de que no se sabe
+a ciencia cierta su efecto en la propagación del COVID-19 (por lo menos a la fecha
+de publicación del artículo original), se intenta introducir estacionalidad al sistema para analizar el caos, 
+por fines netamente académicos.
+\\\\
+Además de esto, existen muchos factores imprededecibles que afectan las diferentes tazas de contagio,
+por lo que es conveniente estudiar también el efecto del ruido en estas.
+\\\\
+En particular, se analizan 3 casos diferentes, introduciendo estacionalidad y ruido a diferentes parámetros.
+\\\\
+\subsubsection{Caso 1}
+
+El parámetro $\beta_1$ contiene estacionalidad e infección estocástica, y las tres tazas de contacto e infección se definen como:
+\\\\
+$\beta_2 = 30.03, \ \chi = 30.40$
+\\
+$\beta_1(t) = \beta_0(1 + \varepsilon_1 \sin(2\pi t) + \varepsilon_2 \xi(t)$
+\\\\
+Donde $\beta_0 = 2 \times \beta_1 = 60$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección 
+estacional y estocástica respectivamente. $\langle \xi(t) \rangle$ es ruido blanco gausiano, 
+el cual tiene las propiedadees de $\langle \xi(t) \rangle = 0$ y $\langle \xi(t), \xi(\tau) \rangle = \delta(t - \tau)$
+\\\\
+\subsubsection{Caso 2}
+
+El parámetro $\beta_2$ contiene infección estocástica y estacional, mientras que las otras dos tazas de infección permanecen constantes. Los parámetros quedan definidos como:
+\\\\
+$\beta_1 = 30, \ \chi = 30.40$
+\\
+$\beta_2(t) = \beta_0(1+\varepsilon_1 \sin(2 \pi t) + \varepsilon_2 \xi(t))$
+\\\\
+Donde $\beta_0 = 2 \times \beta_2 = 60$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
+\\\\
+\subsubsection{Caso 3}
+
+El parámetro $\chi_1$ contiene infección estocástica y esatcional, y $\beta_1$ y $\beta_2$ son contactos. En este caso, los parámetros estarían dados por:
+\\\\
+$\beta_1 = 30, \ \beta_2(t) = 30$
+\\
+$\chi = \chi_0(1 + \varepsilon_1 \sin(2 \pi t) + \varepsilon_2 \xi(t))$
+\\\\
+Donde $\beta_0 = 2\chi = 60.8$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
+\\\\
 Esta y todas las simulaciones presentadas en este artículo pueden ser consultadas en 
 el siguiente enlace: \href{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto.ipynb}{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto
 .ipynb}
