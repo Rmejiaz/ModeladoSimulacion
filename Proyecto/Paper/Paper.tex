@@ -36,7 +36,7 @@
 \title{Modelado SEIR del COVID-19 y sus dinámicas: simulaciones y análisis de 
 bifurcaciones}
 
-\author{Rafael Mejía Zuluaga \\\\ Universidad Nacional de Colombia sede Manizales \\ rmejiaz@unal.edu.co}
+\author{Rafael Mejía Zuluaga \\\\Departamento de Ingeniería Eléctrica, Electrónica y Computación \\ Universidad Nacional de Colombia sede Manizales \\ rmejiaz@unal.edu.co}
 
 \maketitle
 
@@ -69,8 +69,9 @@ parte de la base que la cantidad total de individuos $N$ se mantiene constante (
 cuenta los nacimientos ni las muertes), por lo que la cantidad de personas que salen de
 un grupo necesariamente deben entrar a otro de los grupos, y en todo momento se cumple
 $N = S + E + I + R$.
-\\\\
-El modelo propuesto por los autores es una versión ampliada de este modelo, en el cual 
+\section{Modelo SEIR mejorado}
+
+El modelo propuesto por He et al. [1] es una versión ampliada del modelo SEIR clásico, en el cual 
 se incluyen dos variables más: $H$ (hospitalizados) y $Q$ (en cuarentena). Además, se
 divide la categoría de infectados en dos grupos: $I_1$ (infecados sin intervención)
 e $I_2$ (infectados con intervención).
@@ -189,9 +190,27 @@ utilizados.
     \end{tabular}
     \caption{Parámetros utilizados estimados a partir del algoritmo PSO}
     \label{p1}
-    \end{table}
+\end{table}
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+    \hline
+    Variable  & Valor                  \\ \hline
+    $N$       & $6.5563 \times 10 ^ 4$ \\ 
+    $E$       & $5077$                 \\ 
+    $I_1$     & $I_2 \times 0.01$      \\ 
+    $I_2$     & $729$                  \\ 
+    $H$       & $658$                  \\ 
+    $R$       & $32$                   \\ 
+    $Q$       & $4711$                 \\ 
+    $\Lambda$ & $10$                   \\ \hline
+    \end{tabular}
+    \caption{Condiciones iniciales del sistema}
+    \label{ic1}
+\end{table}
 La figura \ref{pvi_1} muestra una simulación del problema de valor inicial, utilizando
-los mismos parámetros y valores iniciales del artículo.
+los mismos parámetros y valores iniciales del artículo. 
 
 \begin{figure}[h]
     \centering
@@ -242,10 +261,22 @@ $\beta_1 = 30, \ \beta_2(t) = 30$
 \\
 $\chi = \chi_0(1 + \varepsilon_1 \sin(2 \pi t) + \varepsilon_2 \xi(t))$
 \\\\
-Donde $\beta_0 = 2\chi = 60.8$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
+Donde $\chi_0 = 2\chi = 60.8$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
 \\\\
-Esta y todas las simulaciones presentadas en este artículo pueden ser consultadas en 
-el siguiente enlace: \href{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto.ipynb}{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto
+
+\section{Conclusiones}
+
+
+\section*{Anexo 1: Cuaderno con Simulaciones}
+
+Todas las simulaciones y códigos pueden ser consultados en el siguiente enlace: \href{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto.ipynb}{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto
 .ipynb}
+
+
+\section{Referencias}
+
+\begin{enumerate}
+    \item He, S., Peng, Y. \& Sun, K. SEIR modeling of the COVID-19 and its dynamics. Nonlinear Dyn 101, 1667–1680 (2020). \href{https://doi.org/10.1007/s11071-020-05743-y}{https://doi.org/10.1007/s11071-020-05743-y}
+\end{enumerate}
 
 \end{document}
