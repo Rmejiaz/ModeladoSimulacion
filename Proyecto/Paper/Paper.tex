@@ -33,8 +33,7 @@
 \begin{document}
     
 
-\title{Modelado SEIR del COVID-19 y sus dinámicas: simulaciones y análisis de 
-bifurcaciones}
+\title{Modelo SEIR mejorado del COVID-19 y sus dinámicas}
 
 \author{Rafael Mejía Zuluaga \\\\Departamento de Ingeniería Eléctrica, Electrónica y Computación \\ Universidad Nacional de Colombia sede Manizales \\ rmejiaz@unal.edu.co}
 
@@ -243,6 +242,26 @@ Donde $\beta_0 = 2 \times \beta_1 = 60$, $\varepsilon_1$ y $\varepsilon_2$ son g
 estacional y estocástica respectivamente. $\langle \xi(t) \rangle$ es ruido blanco gausiano, 
 el cual tiene las propiedadees de $\langle \xi(t) \rangle = 0$ y $\langle \xi(t), \xi(\tau) \rangle = \delta(t - \tau)$
 \\\\
+La figura \ref{case_1} muestra algunas simulaciones de este caso variando $\varepsilon_1, \varepsilon_2$
+y $\alpha$. En particular se analizan 3 casos: uno sin infección estacional ni estocástica, otro con infección
+unicamente estacional, y por ultimo uno con infección estacional y estocástica. 
+\\
+Para el primer caso, puede verse como el sistema se estabiliza en una región confinada, mientras 
+que con infección estacional y estocástica el sistema presenta oscilaciones alrededor de un punto. En ambos
+casos las órbitas no son únicas; por el contrario existen diferentes órbitas (caos) las cuales en el caso 
+de infección estacional no se hacen tan evidentes por su proximidad, mientras que en el caso estacional y
+estocástico se pueden apreciar claramente numerosas órbitas.
+\\\\
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=8cm]{../Figures/case_1.png}
+    \caption{Diagramas de fase y en el tiempo para el caso 1. La primera fila representa el caso en el que $\varepsilon_1 = 0$
+    y $\varepsilon_2 = 0$ (sin infección estacional ni estocástica). La segunda fila para $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0$ (infeccón 
+    estacional pero no estocástica) y la tercera para $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0.2$ 
+    (infección estacional y estocástica)}
+    \label{case_1}
+\end{figure}
+
 \subsubsection{Caso 2}
 
 El parámetro $\beta_2$ contiene infección estocástica y estacional, mientras que las otras dos tazas de infección permanecen constantes. Los parámetros quedan definidos como:
@@ -253,9 +272,32 @@ $\beta_2(t) = \beta_0(1+\varepsilon_1 \sin(2 \pi t) + \varepsilon_2 \xi(t))$
 \\\\
 Donde $\beta_0 = 2 \times \beta_2 = 60$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
 \\\\
+Al igual que en el caso 1, en este se varían los parámetros de diferentes formas para analizar diferentes
+escenarios, como se puede ver en la figura \ref{case_2}. Dado que ya se demostó en el caso 1 que el sistema sin infección estacional ni estocástica no 
+presenta caos, este caso se obvia. Para los otros dos casos (solo estacional y tanto estacional como estocástica)
+se utilizan diferentes valores de $\alpha$. En general, los resultados son muy similares a los del caso 1. 
+En ambos casos se evidencia presencia de caos, aunque claramente y por obvias razones más marcada en el
+caso de infección estocástica. A pesar de que las figuras lucen todas iguales, hay variaciones en las escalas
+por lo que se puede concluir que el parámetro $\alpha$ afecta la amplitud de las oscilaciones generadas por 
+la estacionalidad de la infección.
+
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=18cm]{../Figures/case_2.png}
+    \caption{Diagramas de fase para diferentes valores de $\varepsilon_1, \varepsilon_2$ y $\alpha$. 
+    La primera fila con $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0$ (infección estacional
+    pero no estocástica), mientras que en la segunda fila se encuentran $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0.2$
+    (infección estacional y estocástica). En cuanto al parámetro $\alpha$, este varía a lo largo de las
+    columnas en el siguiente orden: $\alpha = [0.02 ; 0.03 ; 0.04747 ; 0.08]$}
+    \label{case_2}
+\end{figure*}
+
+
+
 \subsubsection{Caso 3}
 
-El parámetro $\chi_1$ contiene infección estocástica y esatcional, y $\beta_1$ y $\beta_2$ son contactos. En este caso, los parámetros estarían dados por:
+El parámetro $\chi$ contiene infección estocástica y estacional, y $\beta_1$ y $\beta_2$ son constanes.
+En este caso, los parámetros estarían dados por:
 \\\\
 $\beta_1 = 30, \ \beta_2(t) = 30$
 \\
@@ -263,10 +305,65 @@ $\chi = \chi_0(1 + \varepsilon_1 \sin(2 \pi t) + \varepsilon_2 \xi(t))$
 \\\\
 Donde $\chi_0 = 2\chi = 60.8$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
 \\\\
+Como se puede ver en la figura \ref{case_3}, se realizan simulaciones para 3 casos diferentes variando $\alpha, 
+\varepsilon_1$ y $\varepsilon_2$. Al igual que con los dos casos anteriores, en este también se presentan
+diferentes tipos de órbitas, siendo de mayor amplitud la de mayor $\alpha$. Esto se puede ver tanto en el
+diagrama de fase como en la solución en el tiempo. Además, también es evidente que el caso en el que $\alpha = 0.08$
+el sistema se estabiliza mucho más rápido que los otros dos.
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=18cm]{../Figures/case_3.png}
+    \caption{Diagramas de fase y en el tiempo para: $\varepsilon_1 = 0.8, \varepsilon_2 = 0$
+    y $\alpha = 0.01333$ (infección estacional) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.2$
+    y $\alpha = 0.0133$ (infección estacional y estocástica) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.2$
+    y $\alpha = 0.08$ (infección estacional y estocástica)}
+    \label{case_3}
+\end{figure*}
+\\\\
+En todos los casos, el ruido blacno gausiano se simuló utilizando una variable aleatoria
+con función de distribución normal, con $\mu = 0$ y $\sigma = 0.1$.
+\\\\
+La tabla \ref{chaos_params} contiene los valores de los demás parámetros utilizados en esta sección. Los cuales pueden
+parecer demasiado grandes para tratarse de un modelo epidemiológico, sin embargo estos pueden tener sentido, 
+ya que dentro del modelo se multiplica por $S/N$. Estos parámetros no son los mismos que se estimaron con el 
+algortimo PSO, sino que se seleccionaron porque se encontró que con estos puede encontrarse caos en el sistema.
+\\\\
+Por último cabe resaltar que para los diagramas de fase se graficaron únicamente los últimos valores de la simulación,
+para eliminar así el transotorio de esta. De lo contrario, por temas de escala no sería posible apreciar las órbitas
+que aparecen en el estado estacionario.
+\begin{table}[h]
+    \centering
+    \begin{tabular}{ll}
+    \hline
+    Parámetros  & Valores    \\ \hline
+    $\theta_1 $ & $20.054$    \\ 
+    $\theta_2$  & $20.12$ \\ 
+    $\gamma_1$  & $26$    \\ 
+    $\gamma_2$  & $26$ \\ 
+    $\varphi$   & $0.00009$ \\
+    $\phi$      & $0.8$  \\
+    $\lambda$   & $0.4$ \\
+    $\rho_1 $   & $1/14$ \\ 
+    $\rho_2$    & $0.002$ \\
+    $\Lambda$    & $10$  \\ \hline
+    \end{tabular}
+    \caption{Parámetros utilizados para simular los diferentes casos de infección 
+    estacional y estocástica}
+    \label{chaos_params}
+\end{table}
+
+
+
 
 \section{Conclusiones}
 
+\begin{itemize}
+\item Los modelos SEIR pueden ser de gran utilidad para predecir el avance de una epidemia en una región determinada.
+\item La estimación de los parámetros de acuerdo a cada región es de vital importancia para obtener resultados útiles e interpretables.
+\item El modelo en cuestión presenta caos pero únicamente para los casos en los cuales se añaden tazas de infección
+      estacionales y estocásticas, y las oscilaciones que se tienen son en realidad forzadas.
 
+\end{itemize}
 \section*{Anexo 1: Cuaderno con Simulaciones}
 
 Todas las simulaciones y códigos pueden ser consultados en el siguiente enlace: \href{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto.ipynb}{https://github.com/Rmejiaz/ModeladoSimulacion/blob/main/Cuadernos/Proyecto
