@@ -58,7 +58,7 @@ el COVID-19. Utilizando estos modelos es posible hacer predicciones con respecto
 a la evolución y propagación de enfermedades infecciosas dentro de una población, que 
 luego pueden ser utilizadas por los entres gubernamentales en la toma de desiciones.
 \\\\
-El modelo SEIR clásico parte de un principio fundamental el cual consiste en dividir a
+El modelo SEIR clásico parte de un principio fundamental, el cual consiste en dividir a
 la población total en cuatro grupos diferentes: $S$ (susceptibles), $E$ (expuestos),
 $I$ (infectados) y $R$ (recuperados). La idea es que a media que pasa el tiempo, 
 todos los individuos de la población van a pertenecer a todos los grupos, siguiendo la 
@@ -107,7 +107,7 @@ contagiarse más de una vez. A continuación se muestra el modelo propuesto:
     \end{aligned}
 \end{equation}
 
-En los cuadros \ref{var_desc} y \ref{sys_pars} se pueden ver las descripciones de las
+Los cuadros \ref{var_desc} y \ref{sys_pars} contienen las descripciones de las
 variables y los parámetros del modelo respectivamente.
 
 \begin{table}[h]
@@ -163,9 +163,10 @@ Como puede verse, el modelo tiene una gran cantidad de parámetros, los cuales d
 ser cuidadosamente seleccionados según las dinámicas de cada región. Por ejemplo, los 
 mecanismos de control impuestos por los gobiernos pueden variar en cada país.
 \\\\
-En el caso del artículo original, se utiliza el algoritmo PSO (\textit{particle swarm optimization})
-para estimar los parámetros del modelo de acuerdo a un conjunto de datos de la provincia
-de Hubei, en China, de donde también se toman las condiciones iniciales del sistema.
+En el caso del artículo original, se utiliza el algoritmo PSO (\textit{particle swarm optimization}), en español
+optimización por enjambre de partículas, para estimar los parámetros del modelo de acuerdo a un conjunto 
+de datos de la provincia de Hubei, en China, de donde también se toman las condiciones iniciales 
+del sistema.
 \\\\
 Los cuadros \ref{ic1} y \ref{p1} muestran las condiciones iniciales y los parámetros
 utilizados.
@@ -209,12 +210,12 @@ utilizados.
     \label{ic1}
 \end{table}
 La figura \ref{pvi_1} muestra una simulación del problema de valor inicial, utilizando
-los mismos parámetros y valores iniciales del artículo. 
+los mismos parámetros y valores iniciales de los cuadros \ref{p1} y \ref{ic1}
 
 \begin{figure}[h]
     \centering
     \includegraphics[width=10cm]{../Figures/ivp_1.png}
-    \caption{Solución numérica del problema de valores iniciales realizada en Python}
+    \caption{Solución numérica del problema de valores iniciales}
     \label{pvi_1}
 \end{figure}
 
@@ -284,7 +285,7 @@ la estacionalidad de la infección.
 \begin{figure*}[h]
     \centering
     \includegraphics[width=18cm]{../Figures/case_2.png}
-    \caption{Diagramas de fase para diferentes valores de $\varepsilon_1, \varepsilon_2$ y $\alpha$. 
+    \caption{Diagramas de fase para diferentes valores de $\varepsilon_1, \varepsilon_2$ y $\alpha$ para el caso 2. 
     La primera fila con $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0$ (infección estacional
     pero no estocástica), mientras que en la segunda fila se encuentran $\varepsilon_1 = 0.8$ y $\varepsilon_2 = 0.2$
     (infección estacional y estocástica). En cuanto al parámetro $\alpha$, este varía a lo largo de las
@@ -313,24 +314,52 @@ el sistema se estabiliza mucho más rápido que los otros dos.
 \begin{figure*}[h]
     \centering
     \includegraphics[width=18cm]{../Figures/case_3.png}
-    \caption{Diagramas de fase y en el tiempo para: $\varepsilon_1 = 0.8, \varepsilon_2 = 0$
+    \caption{Diagramas de fase y en el tiempo del caso 3 para: $\varepsilon_1 = 0.8, \varepsilon_2 = 0$
     y $\alpha = 0.01333$ (infección estacional) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.2$
     y $\alpha = 0.0133$ (infección estacional y estocástica) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.2$
     y $\alpha = 0.08$ (infección estacional y estocástica)}
     \label{case_3}
 \end{figure*}
+
+\subsection{Caso 4}
+
+Infección estacional y estocástica con período interpretable. Los 3 casos analizados anteriormente tenían 
+una estacionalidad con un período muy bajo, por lo que de alguna forma carecen de interpretabilidad. En
+este caso se introduce la estacionalidad de la misma forma, pero fijando el período a un año.
 \\\\
+$$T = 365$$
+$$\omega = \frac{2 \pi}{T}$$
+$$\omega = \frac{2 \pi}{365}$$
+
+
+El parámetro $\chi$ contiene infección estocástica y esatcional, con período de un año y $\beta_1$ y $\beta_2$ son constantes. En este caso, los parámetros estarían dados por:
+\\\\
+$\beta_1 = 30, \beta_2(t) = 30$
+\\
+$\chi = \chi_0(1 + \varepsilon_1 \sin(\frac{2 \pi}{365} t) + \varepsilon_2 \xi(t))$
+\\\\
+Donde $\beta_0 = 2\chi = 60.8$, $\varepsilon_1$ y $\varepsilon_2$ son grados de infección estocástica y estacional respectivamente.
+\\\\
+La figura \ref{case_4} muestra simulaciones para diferentes valores de $\alpha$, $\varepsilon_1$ y $\varepsilon_2$
+\\\\
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=18cm]{../Figures/case_4.png}
+    \caption{Diagramas de fase y en el tiempo del caso 4 para: $\varepsilon_1 = 0.8, \varepsilon_2 = 0$
+    y $\alpha = 0.01333$ (infección estacional) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.8$
+    y $\alpha = 0.0133$ (infección estacional y estocástica) ; $\varepsilon_1 = 0.8, \varepsilon_2 = 0.8$
+    y $\alpha = 0.08$ (infección estacional y estocástica)}
+    \label{case_4}
+\end{figure*}
+
 En todos los casos, el ruido blacno gausiano se simuló utilizando una variable aleatoria
 con función de distribución normal, con $\mu = 0$ y $\sigma = 0.1$.
 \\\\
-La tabla \ref{chaos_params} contiene los valores de los demás parámetros utilizados en esta sección. Los cuales pueden
+El cuadro \ref{chaos_params} contiene los valores de los demás parámetros utilizados en esta sección. Los cuales pueden
 parecer demasiado grandes para tratarse de un modelo epidemiológico, sin embargo estos pueden tener sentido, 
 ya que dentro del modelo se multiplica por $S/N$. Estos parámetros no son los mismos que se estimaron con el 
 algortimo PSO, sino que se seleccionaron porque se encontró que con estos puede encontrarse caos en el sistema.
-\\\\
-Por último cabe resaltar que para los diagramas de fase se graficaron únicamente los últimos valores de la simulación,
-para eliminar así el transotorio de esta. De lo contrario, por temas de escala no sería posible apreciar las órbitas
-que aparecen en el estado estacionario.
+
 \begin{table}[h]
     \centering
     \begin{tabular}{ll}
@@ -352,6 +381,12 @@ que aparecen en el estado estacionario.
     \label{chaos_params}
 \end{table}
 
+Por último cabe resaltar que para los diagramas de fase se graficaron únicamente los últimos valores de la simulación,
+para eliminar así el transotorio de esta. De lo contrario, por temas de escala no sería posible apreciar las órbitas
+que aparecen en el estado estacionario.
+\\\\
+Todas las simulaciones se realizaron utilizando el método de integración numérica Runge-Kutta de orden 5,
+con un tamaño de paso de $0.01$ (ver anexo 1)
 
 
 
@@ -361,7 +396,7 @@ que aparecen en el estado estacionario.
 \item Los modelos SEIR pueden ser de gran utilidad para predecir el avance de una epidemia en una región determinada.
 \item La estimación de los parámetros de acuerdo a cada región es de vital importancia para obtener resultados útiles e interpretables.
 \item El modelo en cuestión presenta caos pero únicamente para los casos en los cuales se añaden tazas de infección
-      estacionales y estocásticas, y las oscilaciones que se tienen son en realidad forzadas.
+      estacionales y estocásticas, y las oscilaciones que se tienen son en realidad forzadas y no propias del sistema.
 
 \end{itemize}
 \section*{Anexo 1: Cuaderno con Simulaciones}
